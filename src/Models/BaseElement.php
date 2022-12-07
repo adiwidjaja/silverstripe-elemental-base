@@ -93,14 +93,14 @@ class BaseElement extends ElementalBase
         }
     }
 
-    public function getMenuTitle() {
+    public function renderMenuTitle() {
         if ($this->dbObject("MenuTitle"))
-            return $this->dbObject("MenuTitle");
+            return $this->MenuTitle;
         return $this->Title;
     }
 
     public function getAnchorTitle() {
-        return $this->getMenuTitle();
+        return $this->renderMenuTitle();
     }
 
 
