@@ -16,10 +16,12 @@ class ElementalPageExtension extends BaseExtension {
 
         $menu_items = $this->getElementsForMenu();
         foreach($menu_items as $element) {
-            $menu->push(new ArrayData([
-                "Link" => "#".$element->getAnchor(),
-                "Title" => $element->getMenuTitle()
-            ]));
+            if ($element->ShowInMenu) {
+                $menu->push(new ArrayData([
+                    "Link" => "#".$element->getAnchor(),
+                    "Title" => $element->renderMenuTitle()
+                ]));
+            }
         }
 
         return $menu;
